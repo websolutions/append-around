@@ -1,0 +1,18 @@
+{
+  "name": "wsol-append-around",
+  "version": "1.0.0",
+  "homepage": "https://github.com/websolutions/append-around",
+  "authors": [
+    "Maxwell Barvian <max@barvian.me>"
+  ],
+  "description": "A jQuery plugin for responsive markup based on @filamentgroup's script.",
+  "main": [
+    "js/wsol.appendAround.js"
+  ],
+  "ignore": [
+    "bower_components"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.7.2"
+  }
+}
