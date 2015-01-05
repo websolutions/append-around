@@ -1,4 +1,4 @@
-# Append-Around
+# Append Around
 
 A jQuery plugin for responsive markup based on [FilamentGroup's script](https://github.com/filamentgroup/AppendAround).
 
@@ -75,12 +75,12 @@ Using the following CSS:
 
 And is initialized like so:
 ``` javascript
-$(".sample").appendAround();
+$(".sample").wsol_appendAround();
 ```
 
 The plugin can also be removed afterwards:
 ``` javascript
-$(".sample").unappendAround();
+$(".sample").data("wsol.appendAround").destroy();
 ```
 
 

@@ -1,71 +1,65 @@
 ﻿/**
- * wsol.appendAround.js 1.0.0
+ * wsol.appendAround.js 2.0.0
  * http://github.com/websolutions/append-around
  */
 
-
 ;(function ($, window, document, undefined) {
+  if (!$.wsol) {
+    $.wsol = {};
+  }
 
-  var elementId = 0,
-      defaults = {
+  $.wsol.appendAround = function(el, options) {
+    var base = this;
+
+    base.$el = $(el);
+    base.el = el;
+
+    base.$el.data("wsol.appendAround", base);
+
+    base.init = function() {
+      base.options = $.extend({}, $.wsol.appendAround.defaultOptions, options);
+
+      base.$parent = base.$el.parent();
+      base.set = base.$parent.attr(base.options.setAttr);
+      base.$set = $("[" + base.options.setAttr + "='" + base.set + "']");
+
+      base.append();
+
+      // Handle events
+      $(window).on("resize.wsol.appendAround", base.append);
+    };
+
+    base.append = function() {
+      if (base.$parent.is(":hidden")) {
+        // Append to the first visible set
+        base.$set.each(function() {
+          var $target = $(this);
+
+          if (!$target.is(":hidden")) {
+            base.$el.appendTo($target);
+            base.$parent = $target;
+
+            return false;
+          }
+        });
+      }
+    };
+
+    base.destroy = function() {
+      // Remove event listeners
+      $(window).off(".wsol.appendAround");
+    };
+
+    base.init();
+  };
+
+  $.wsol.appendAround.defaultOptions = {
     setAttr: "data-set"
   };
 
-  function AppendAround(element, options) {
-    this.$element = $(element);
-    this.settings = $.extend({}, defaults, options);
-    this.elementId = elementId++;
-
-    this.appendToVisibleContainer = $.proxy(this.appendToVisibleContainer, this);
-
-    this.init();
-  }
-
-  AppendAround.prototype.init = function() {
-    this.$parent = this.$element.parent();
-    this.set = this.$parent.attr(this.settings.setAttr);
-    this.$set = $("[" + this.settings.setAttr + "='" + this.set + "']");
-
-    this.appendToVisibleContainer();
-
-    // Handle events
-    $(window).on("resize.appendAround.appendAround-" + this.elementId, this.appendToVisibleContainer);
-  };
-
-  AppendAround.prototype.appendToVisibleContainer = function() {
-    var _ = this;
-
-    if (this.$parent.is(":hidden")) {
-      // Append to the first visible set
-      this.$set.each(function() {
-        var $this = $(this);
-
-        if (!$this.is(":hidden")) {
-          _.$element.appendTo($this);
-          _.$parent = $this;
-
-          return false;
-        }
-      });
-    }
-  };
-
-  AppendAround.prototype.destroy = function() {
-    // Remove event listeners
-    $(window).off(".appendAround-" + this.elementId);
-  };
-
-  $.fn.appendAround = function(options) {
-    return this.each(function(index, element) {
-      element.appendAround = new AppendAround(element, options);
-    });
-  };
-
-  $.fn.unappendAround = function() {
-    return this.each(function(index, element) {
-      if (element.appendAround) {
-        element.appendAround.destroy();
-      }
+  $.fn.wsol_appendAround = function(options) {
+    return this.each(function() {
+      new $.wsol.appendAround(this, options);
     });
   };
 
