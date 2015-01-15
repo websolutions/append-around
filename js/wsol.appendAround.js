@@ -29,13 +29,17 @@
       $(window).on("resize.wsol.appendAround", base.append);
     };
 
+    base.isHidden = function( elem ) {
+      return $(elem).css( "display" ) === "none";
+    };
+
     base.append = function() {
-      if (base.$parent.is(":hidden")) {
+      if ( base.isHidden( base.$parent ) ) {
         // Append to the first visible set
         base.$set.each(function() {
           var $target = $(this);
 
-          if (!$target.is(":hidden")) {
+          if ( !base.isHidden( $target ) ) {
             base.$el.appendTo($target);
             base.$parent = $target;
 
