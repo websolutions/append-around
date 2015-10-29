@@ -1,5 +1,5 @@
 ﻿/**
- * wsol.appendAround.js 2.0.0
+ * wsol.appendAround.js
  * http://github.com/websolutions/append-around
  */
 
