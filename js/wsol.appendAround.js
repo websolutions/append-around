@@ -3,9 +3,9 @@
  * http://github.com/websolutions/append-around
  */
 
- ;(function (factory) {
-  if (typeof module === "object" && typeof module.exports === "object") {
-    factory(require("jquery"), window, document);
+ ;(function(factory) {
+  if (typeof module === 'object' && typeof module.exports === 'object') {
+    factory(require('jquery'), window, document);
   } else {
     factory(jQuery, window, document);
   }
