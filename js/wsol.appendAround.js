@@ -3,7 +3,13 @@
  * http://github.com/websolutions/append-around
  */
 
-;(function ($, window, document, undefined) {
+ ;(function (factory) {
+  if (typeof module === "object" && typeof module.exports === "object") {
+    factory(require("jquery"), window, document);
+  } else {
+    factory(jQuery, window, document);
+  }
+}(function($, window, document, undefined) {
   if (!$.wsol) {
     $.wsol = {};
   }
@@ -67,4 +73,4 @@
     });
   };
 
-})(jQuery, window, document);
+}));
