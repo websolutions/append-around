@@ -1,0 +1,12 @@
+{
+  "name": "wsol.appendAround",
+  "version": "2.1.0",
+  "description": "A jQuery plugin for responsive markup.",
+  "contributors": [
+    "Maxwell Barvian <max@barvian.me>"
+  ],
+  "repository": "websolutions/append-around",
+  "license": "MIT",
+  "bugs": "https://github.com/websolutions/append-around/issues",
+  "homepage": "https://github.com/websolutions/append-around"
+}
