@@ -1,12 +1,19 @@
 {
-  "name": "wsol.appendAround",
+  "name": "@wearediagram/wsol.append-around",
   "version": "2.1.0",
-  "description": "A jQuery plugin for responsive markup.",
-  "contributors": [
-    "Maxwell Barvian <max@barvian.me>"
-  ],
-  "repository": "websolutions/append-around",
-  "license": "MIT",
-  "bugs": "https://github.com/websolutions/append-around/issues",
-  "homepage": "https://github.com/websolutions/append-around"
+  "description": "",
+  "main": "./js/wsol.appendAround.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/websolutions/append-around.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/websolutions/append-around/issues"
+  },
+  "homepage": "https://github.com/websolutions/append-around#readme"
 }
