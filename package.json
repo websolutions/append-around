@@ -1,6 +1,6 @@
 {
-  "name": "@wearediagram/wsol.appendAround",
-  "version": "2.1.0",
+  "name": "@wearediagram/wsol.appendaround",
+  "version": "2.1.1",
   "description": "",
   "main": "./js/wsol.appendAround.js",
   "scripts": {
